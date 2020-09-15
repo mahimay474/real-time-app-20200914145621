@@ -1,4 +1,16 @@
-<div id="container">
-  <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-</div>
+<ion-content padding>
+  <h1>Add Details</h1>
+  <ion-input [(ngModel)]="firstName" placeholder="First Name"></ion-input>
+  <ion-input [(ngModel)]="lastName" placeholder="Last Name"></ion-input>
+  <ion-button color="primary" expand="full" (click)="addItem({firstName:firstName, lastName:lastName})">Add</ion-button>
+  <ion-button color="primary" expand="full" (click)="showPreview()">Preview</ion-button>
+  
+  <ion-list>
+    <h1>All Item List</h1>
+    <ion-item *ngFor="let item of items" (click)="deleteItem(item.key)">
+     <ion-label>First Name</ion-label> {{item.firstName}} &nbsp;&nbsp;
+     <ion-label>Last Name</ion-label>{{item.lastName}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
